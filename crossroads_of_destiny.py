@@ -30,9 +30,7 @@ def wiz_storyline(ending = "wizard"):
             ending = "traitor"
         else:
             choice = input(choices["error"])
-    gate_keys.append(ending)
     return ending
-    
 
-wiz_storyline()
+gate_keys.append(wiz_storyline())
 print(gate_keys)
