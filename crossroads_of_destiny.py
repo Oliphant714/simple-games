@@ -13,10 +13,9 @@ def wiz_storyline(ending = "wizard"):
             ending = "necromancer"
             choice_count += 1
         elif choice.lower() == "leave":
-            choice_count = 66
             ending = "traitor"
             break
-        elif choice.lower() in choices:
+        elif choice.lower() in choices  and choice.lower() != "bell":
             print(choices[choice.lower()])
             if choice_count < 2:
                 choice = input().strip()
@@ -24,3 +23,52 @@ def wiz_storyline(ending = "wizard"):
         else:
             choice = input(choices["error"])
     gate_keys.append(ending)
+
+def fit_storyline(ending = "fighter"):
+    from choices import fighter
+    choice_count = 1
+    choices = fighter
+    print(choices["intro"])
+    choice = input().strip()
+
+    while choice_count < 3:
+        if choice.lower() == "pray" and choice_count == 2:
+            print(choices["pray"])
+            ending = "paladin"
+            choice_count += 1
+        elif choice.lower() == "leave":
+            ending = "traitor"
+            break
+        elif choice.lower() in choices and choice.lower() != "pray":
+            print(choices[choice.lower()])
+            if choice_count < 2:
+                choice = input().strip()
+            choice_count += 1
+        else:
+            choice = input(choices["error"])
+    gate_keys.append(ending)
+
+def rog_storyline(ending = "rogue"):
+    from choices import rogue
+    choice_count = 1
+    choices = rogue
+    print(choices["intro"])
+    choice = input().strip()
+
+    while choice_count < 3:
+        if choice.lower() == "devil" and choice_count == 2:
+            print(choices["devil"])
+            ending = "devil"
+            choice_count += 1
+        elif choice.lower() == "leave":
+            ending = "traitor"
+            break
+        elif choice.lower() in choices and choice.lower() != "devil":
+            print(choices[choice.lower()])
+            if choice_count < 2:
+                choice = input().strip()
+            choice_count += 1
+        else:
+            choice = input(choices["error"])
+    gate_keys.append(ending)
+
