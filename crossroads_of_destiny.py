@@ -56,14 +56,14 @@ def rog_storyline(ending = "rogue"):
     choice = input().strip()
 
     while choice_count < 3:
-        if choice.lower() == "devil" and choice_count == 2:
-            print(choices["devil"])
+        if choice.lower() == "pendant" and choice_count == 2:
+            print(choices["pendant"])
             ending = "devil"
             choice_count += 1
         elif choice.lower() == "leave":
             ending = "traitor"
             break
-        elif choice.lower() in choices and choice.lower() != "devil":
+        elif choice.lower() in choices and choice.lower() != "pendant":
             print(choices[choice.lower()])
             if choice_count < 2:
                 choice = input().strip()
