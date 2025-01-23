@@ -1,4 +1,10 @@
 gate_keys = []
+available_paths = ["wizard", "fighter", "rogue"]
+display_paths = ", ".join(path.upper() for path in available_paths)
+    
+from choices import standard_phrases
+
+keep_playing = "y"
 
 def wiz_storyline(ending = "wizard"):
     from choices import wizard
@@ -56,6 +62,7 @@ def rog_storyline(ending = "rogue"):
     choice = input().strip()
 
     while choice_count < 3:
+        rogue_choices.append(choice)
         if choice.lower() == "pendant" and choice_count == 2:
             print(choices["pendant"])
             ending = "devil"
@@ -72,3 +79,55 @@ def rog_storyline(ending = "rogue"):
             choice = input(choices["error"])
     gate_keys.append(ending)
 
+while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not in gate_keys:
+    path_choice = input(f"Please select the path you wish to walk: {display_paths}\n").lower()
+    print("")
+    
+    if path_choice in available_paths:
+
+        # Wizard Path
+        if path_choice == "wizard":
+            wiz_storyline()
+            print("")
+            if "traitor" in gate_keys:
+                break
+            elif "necromancer" not in gate_keys:
+                ending_key = "wizard_end"
+            else:
+                ending_key = "necromancer_end"
+                available_paths.remove(path_choice)
+
+        # Fighter Path
+        elif path_choice == "fighter":
+            fit_storyline()
+            print("")
+            if "traitor" in gate_keys:
+                break
+            elif "paladin" not in gate_keys:
+                ending_key = "fighter_end"
+            else:
+                ending_key = "paladin_end"
+                available_paths.remove(path_choice)
+        
+        # Rogue Path
+        elif path_choice == "rogue":
+            rogue_choices = []
+            rog_storyline()
+            print("")
+            if "traitor" in gate_keys:
+                break
+            elif "castle" in rogue_choices:
+                ending_key = "grogue_end"
+            elif "castle" not in rogue_choices and "devil" not in gate_keys:
+                ending_key = "brogue_end"
+            else:
+                ending_key = "devil_end"
+                available_paths.remove(path_choice)
+            
+        else:
+            path_choice = input(standard_phrases["no_path"])
+
+        keep_playing = input(standard_phrases[ending_key.lower()])
+
+    else:
+        print(standard_phrases["no_path"])
