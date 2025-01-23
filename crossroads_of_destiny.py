@@ -2,12 +2,11 @@ gate_keys = []
 available_paths = ["wizard", "fighter", "rogue"]
 display_paths = ", ".join(path.upper() for path in available_paths)
     
-from choices import standard_phrases
+from choices import standard_phrases, wizard, fighter, rogue
 
 keep_playing = "y"
 
-def wiz_storyline(ending = "wizard"):
-    from choices import wizard
+def wiz_storyline(gate_keys, ending = "wizard"):
     choice_count = 1
     choices = wizard
     print(choices["intro"])
@@ -30,8 +29,7 @@ def wiz_storyline(ending = "wizard"):
             choice = input(choices["error"])
     gate_keys.append(ending)
 
-def fit_storyline(ending = "fighter"):
-    from choices import fighter
+def fit_storyline(gate_keys, ending = "fighter"):
     choice_count = 1
     choices = fighter
     print(choices["intro"])
@@ -54,8 +52,7 @@ def fit_storyline(ending = "fighter"):
             choice = input(choices["error"])
     gate_keys.append(ending)
 
-def rog_storyline(ending = "rogue"):
-    from choices import rogue
+def rog_storyline(gate_keys, rogue_choices, ending = "rogue"):
     choice_count = 1
     choices = rogue
     print(choices["intro"])
@@ -79,7 +76,7 @@ def rog_storyline(ending = "rogue"):
             choice = input(choices["error"])
     gate_keys.append(ending)
 
-while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not in gate_keys:
+while (keep_playing.lower() == "y" and len(available_paths) > 0) and "traitor" not in gate_keys:
     path_choice = input(f"Please select the path you wish to walk: {display_paths}\n").lower()
     print("")
     
@@ -87,7 +84,7 @@ while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not i
 
         # Wizard Path
         if path_choice == "wizard":
-            wiz_storyline()
+            wiz_storyline(gate_keys)
             print("")
             if "traitor" in gate_keys:
                 break
@@ -99,7 +96,7 @@ while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not i
 
         # Fighter Path
         elif path_choice == "fighter":
-            fit_storyline()
+            fit_storyline(gate_keys)
             print("")
             if "traitor" in gate_keys:
                 break
@@ -112,7 +109,7 @@ while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not i
         # Rogue Path
         elif path_choice == "rogue":
             rogue_choices = []
-            rog_storyline()
+            rog_storyline(gate_keys, rogue_choices)
             print("")
             if "traitor" in gate_keys:
                 break
@@ -127,7 +124,7 @@ while keep_playing.lower() == "y" or len(available_paths) > 0 or "traitor" not i
         else:
             path_choice = input(standard_phrases["no_path"])
 
-        keep_playing = input(standard_phrases[ending_key.lower()])
+        keep_playing = input(standard_phrases[ending_key])
 
     else:
         print(standard_phrases["no_path"])
