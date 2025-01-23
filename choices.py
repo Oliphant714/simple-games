@@ -34,15 +34,17 @@ rogue = {
 
 standard_phrases = {
     "introduction" : "",
-    "wizard_end" : "What a wonderful adventure!  Did you need to use your requiem BELL?\nNo? Well remember that spirits are especially susceptable to the ethereal chimes.\nWould you like to walk back down the Crossroads of Destiny? Y/N\n",
-    "necromancer_end" : "Well done Necromancer!  You have mastered the magical arts and conquered the dead.\nThe Crossroads of Destiny has awarded you one Gate Key.\nWould you like to walk another path? Y/N\n",
-    "fighter_end":"What a wonderful adventure!  Remember, the powers of Heaven are available to those who PRAY.\nWould you like to walk back down the Crossroads of Destiny? Y/N\n",
-    "paladin_end":"Well done Paladin!  You have received all the powers of Heaven and surpassed all mortal limits!\nThe Crossroads of Destiny has awarded you one Gate Key.\nWould you like to walk another path? Y/N\n",
-    "grogue_end":"What a wonderful adventure!  The kingdom owes you a great debt, one they will never know.\nWould you like to walk back down the Crossroads of Destiny? Y/N\n",
-    "brogue_end":"What a wonderful adventure!  I see your PENDANT lies unused.  It is a powerful tool when you are backed against the wall.\nWould you like to walk back down the Crossroads of Destiny? Y/N\n",
-    "devil_end":"Well done Devil!  You have accumulated more souls for your bank and furthered your own social standing in the under-archy!\nThe Crossroads of Desiny has awarded you one Gate Key.\nWould you like to walk another path? Y/N\n",
-    "no_path":"That is not a selectable class.  Please try again. \n",
-    "traitor":"",
-    "end":"",
-    "gate_open":""
+    "wizard_end" : "What a wonderful adventure!  Did you need to use your requiem BELL?\nNo? Well remember that spirits are especially susceptable to the ethereal chimes.\n",
+    "necromancer_end" : "Well done Necromancer!  You have mastered the magical arts and conquered the dead.\nThe Crossroads of Destiny has awarded you one Gate Key.",
+    "fighter_end":"What a wonderful adventure!  Remember, the powers of Heaven are available to those who PRAY.\n",
+    "paladin_end":"Well done Paladin!  You have received all the powers of Heaven and surpassed all mortal limits!\nThe Crossroads of Destiny has awarded you one Gate Key.",
+    "grogue_end":"What a wonderful adventure!  The kingdom owes you a great debt, one they will never know.\n",
+    "brogue_end":"What a wonderful adventure!  I see your PENDANT lies unused.  It is a powerful tool when you are backed against the wall.\n",
+    "devil_end":"Well done Devil!  You have accumulated more souls for your bank and furthered your own social standing in the under-archy!\nThe Crossroads of Desiny has awarded you one Gate Key.",
+    "no_path":"That is not a selectable class.  Please try again.\n",
+    "story_end" : "Would you like to walk back down the Crossroads of Destiny? Y/N\n",
+    "special_end" : "Would you like to walk another path? Y/N\n",
+    "traitor" : "",
+    "discontinue" : "",
+    "gate_open" : ""
 }
