@@ -1,11 +1,13 @@
+# Importing dictionaries
+from choices import standard_phrases, wizard, fighter, rogue
+
+# Universal variables
 gate_keys = []
 end_key = "story_end"
 available_paths = ["wizard", "fighter", "rogue"]
-    
-from choices import standard_phrases, wizard, fighter, rogue
-
 keep_playing = "y"
 
+#The storylines
 def wiz_storyline(gate_keys, ending = "wizard"):
     choice_count = 1
     choices = wizard
@@ -28,7 +30,6 @@ def wiz_storyline(gate_keys, ending = "wizard"):
         else:
             choice = input(choices["error"])
     gate_keys.append(ending)
-
 def fit_storyline(gate_keys, ending = "fighter"):
     choice_count = 1
     choices = fighter
@@ -51,7 +52,6 @@ def fit_storyline(gate_keys, ending = "fighter"):
         else:
             choice = input(choices["error"])
     gate_keys.append(ending)
-
 def rog_storyline(gate_keys, rogue_choices, ending = "rogue"):
     choice_count = 1
     choices = rogue
@@ -76,6 +76,10 @@ def rog_storyline(gate_keys, rogue_choices, ending = "rogue"):
             choice = input(choices["error"])
     gate_keys.append(ending)
 
+# Introducing the Crossroads
+
+
+# The Game
 while keep_playing.lower() == "y" and "traitor" not in gate_keys:
 
     display_paths = ", ".join(path.upper() for path in available_paths)
@@ -137,3 +141,5 @@ while keep_playing.lower() == "y" and "traitor" not in gate_keys:
             break
     else:
         print(standard_phrases["no_path"])
+
+# End the game
