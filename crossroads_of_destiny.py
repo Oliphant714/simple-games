@@ -131,11 +131,9 @@ while keep_playing.lower() == "y" and "traitor" not in gate_keys:
             path_choice = input(standard_phrases["no_path"])
 
         print(standard_phrases[ending_phrase])
-        keep_playing = input(standard_phrases[end_key])
-
+        if len(available_paths) > 0:
+            keep_playing = input(standard_phrases[end_key])
+        else:
+            break
     else:
         print(standard_phrases["no_path"])
-    if len(available_paths) > 0:
-        print("")
-    else:
-        break
