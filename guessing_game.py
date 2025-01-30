@@ -15,14 +15,6 @@ print('This is the "guess a number" game.')
 print('You try to guess a random number in the smallest number of attempts.')
 print('')
 
-# Set 1, guess 1
-# Set 1, guess 0, 2, 1
-# Set 10, play
-# Set 50, play
-
-
-#number = 1
-#number = randint(1, 10)
 number = randint(1, 50)
 guess = int(input('Pick a number between 1-100: '))
 guess_list =[]
